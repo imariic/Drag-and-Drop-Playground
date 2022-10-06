@@ -2,7 +2,76 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: aquamarine;
   width: 100vw;
   height: 100vh;
+}
+
+.xAxis {
+  position: relative;
+  width: 40%;
+  height: 1px;
+  background-color: black;
+}
+
+.xAxis::before {
+  position: absolute;
+  content: "X axis";
+  top: -37.5px;
+  left: -20%;
+  width: 100px;
+  height: 75px;
+  border: 1px black solid;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 75px;
+}
+
+.xAxis::after {
+  position: absolute;
+  content: "X axis";
+  top: -37.5px;
+  right: -20%;
+  width: 100px;
+  height: 75px;
+  border-radius: 8px;
+  border: 1px black solid;
+  text-align: center;
+  line-height: 75px;
+}
+
+.yAxis {
+  width: 40%;
+  height: 1px;
+  background-color: black;
+  transform: rotateZ(90deg);
+}
+
+.yAxis::after {
+  position: absolute;
+  content: "Y axis";
+  top: -37.5px;
+  left: -20%;
+  width: 100px;
+  height: 75px;
+  border: 1px black solid;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 75px;
+  transform: rotate(-90deg);
+}
+
+.yAxis::before {
+  position: absolute;
+  content: "Y axis";
+  bottom: -37.5px;
+  right: -20%;
+  width: 100px;
+  height: 75px;
+  border: 1px black solid;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 75px;
+  transform: rotate(-90deg);
 }
