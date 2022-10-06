@@ -1,12 +1,7 @@
-import styles from "./App.module.css";
+import Grid from "./components/Grid";
 
 function App() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.xAxis}></div>
-      <div className={styles.yAxis}></div>
-    </div>
-  );
+  return <Grid />;
 }
 
 export default App;
