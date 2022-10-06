@@ -1,5 +1,5 @@
 .container {
-  width: 100%;
+  width: 70%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
 
 .xAxis {
   position: relative;
-  width: 40%;
+  width: 50%;
   height: 1px;
   background-color: black;
 }
@@ -20,7 +20,7 @@
   position: absolute;
   content: "X axis";
   top: -37.5px;
-  left: -20%;
+  left: -120px;
   width: 100px;
   height: 75px;
   border: 1px black solid;
@@ -33,7 +33,7 @@
   position: absolute;
   content: "X axis";
   top: -37.5px;
-  right: -20%;
+  right: -120px;
   width: 100px;
   height: 75px;
   border-radius: 8px;
@@ -43,7 +43,7 @@
 }
 
 .yAxis {
-  width: 40%;
+  width: 50%;
   height: 1px;
   background-color: black;
   transform: rotateZ(90deg);
@@ -53,7 +53,7 @@
   position: absolute;
   content: "Y axis";
   top: -37.5px;
-  left: -20%;
+  left: -120px;
   width: 100px;
   height: 75px;
   border: 1px black solid;
@@ -67,7 +67,7 @@
   position: absolute;
   content: "Y axis";
   bottom: -37.5px;
-  right: -20%;
+  right: -120px;
   width: 100px;
   height: 75px;
   border: 1px black solid;
