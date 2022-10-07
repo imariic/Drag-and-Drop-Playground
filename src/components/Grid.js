@@ -21,7 +21,7 @@ const Grid = () => {
           if (mappedItem.id === item.id) {
             return {
               ...mappedItem,
-              x: x - 150 - item.x,
+              x: x - 150,
               y: y,
             };
           }
