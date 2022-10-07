@@ -1,20 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import Item from "./Item";
 import styles from "./Grid.module.css";
 
 const draggableItems = [
-  { title: "Item 1", x: 30, y: 40 },
-  { title: "Item 2", x: 100, y: 200 },
-  { title: "Item 3", x: 76, y: 134 },
+  { id: 1, title: "Item 1", x: 0, y: 0 },
+  { id: 2, title: "Item 2", x: 0, y: 0 },
+  { id: 3, title: "Item 3", x: 0, y: 0 },
 ];
 
 const Grid = () => {
-  const [collectedProps, drop] = useDrop(() => ({
-    accept: "item",
-  }));
-
   const [items, setItems] = useState(draggableItems);
+
+  const [{ isOver }, drop] = useDrop(
+    () => ({
+      accept: "item",
+      drop: (item, monitor) => {
+        const { x, y } = monitor.getSourceClientOffset();
+        const mappedItems = items.map((mappedItem) => {
+          if (mappedItem.id === item.id) {
+            return {
+              ...mappedItem,
+              x: x - 150 - item.x,
+              y: y,
+            };
+          }
+          return mappedItem;
+        });
+
+        setItems(mappedItems);
+      },
+      collect: (monitor) => ({
+        isOver: monitor.isOver(),
+      }),
+    }),
+    [items]
+  );
 
   return (
     <div ref={drop} className={styles.container}>

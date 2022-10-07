@@ -3,18 +3,17 @@ import { useDrag } from "react-dnd";
 import styles from "./Item.module.css";
 
 const Item = ({ item }) => {
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [{ isDragging }, dragRef] = useDrag(() => ({
     type: "item",
-    collect: (monitor) => {
-      return {
-        isDragging: monitor.isDragging,
-      };
-    },
+    item: { ...item },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
   }));
 
   return (
     <div
-      ref={drag}
+      ref={dragRef}
       className={styles.container}
       style={{ top: item.y, left: item.x }}
     >
